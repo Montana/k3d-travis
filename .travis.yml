@@ -1,8 +1,5 @@
 sudo: required
 dist: bionic
-notifications:
-  slack:
-    on_failure: always
     
 fleet_script_tasks : &fleet_script_tasks
       script:
@@ -26,7 +23,6 @@ matrix:
         - source ~venvpy3/bin/activate
       <<: *fleet_install_tasks
       <<: *fleet_script_tasks
-      # <<: *fleet_k3d_singlemaster_tasks
       after_success:
         - deactivate
 
